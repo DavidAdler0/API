@@ -20,7 +20,7 @@ namespace API.Controllers
         }
         public async Task<List<User>> GetFromAPIAsync()
         {
-            var response = await _httpClient.GetAsync("https://jsonplaceholder.typicode.com/posts");
+            var response = await _httpClient.GetAsync("https://dummyjson.com/users");
             response.EnsureSuccessStatusCode();
             var posts = await response.Content.ReadFromJsonAsync<List<User>>();
             return posts;
@@ -32,7 +32,7 @@ namespace API.Controllers
         }
         public async Task<User> PostUserAsync(User newUser)
         {
-            var response = await _httpClient.PostAsJsonAsync("https://jsonplaceholder.typicode.com/posts", newUser);
+            var response = await _httpClient.PostAsJsonAsync("https://dummyjson.com/users/add", newUser);
             response.EnsureSuccessStatusCode();
             var createdPost = await response.Content.ReadFromJsonAsync<User>();
             return createdPost;
