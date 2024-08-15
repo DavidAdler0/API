@@ -1,0 +1,51 @@
+﻿@model IEnumerable<API.Models.User>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EffectiveDistance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CounterMeasure)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.WeaponId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.WeaponId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.WeaponId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
